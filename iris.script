@@ -14,6 +14,7 @@
     ;zpm "install passwordless"
     zpm "load /home/irisowner/dev/ -v":1
     zpm "load https://github.com/SergeyMi37/isc-passwordless.git"
-    zapm "set img = ##class(NSolov.TextExtract.Image).%New(""/home/irisowner/dev/test-rus.png"", ""rus"") set string = img.Extract(), s= $replace(string,$c(10),$c(13,10))"
+    zapm "set img = ##class(NSolov.TextExtract.Image).%New(""/home/irisowner/dev/test-rus.png"", ""rus"") set str = img.Extract(), s=$replace(str,$c(10),$c(13,10))"
+    zapm "set pdf = ##class(NSolov.TextExtract.PDF).%New(""/home/irisowner/dev/zubr-rus.pdf"") set num=pdf.GetNumPages() for i=0:1:num-1 s s(i)=$replace(pdf.ExtractWithImages(i,""rus""),$c(10),$c(13,10)) "
     
     halt
