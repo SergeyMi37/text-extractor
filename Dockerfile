@@ -5,7 +5,8 @@ USER root
 
 RUN apt-get update && \
     apt-get install -yq tesseract-ocr && \
-    apt-get install -yq poppler-utils
+    apt-get install -yq poppler-utils && \
+    apt-get install tesseract-ocr-rus
 
 USER ${ISC_PACKAGE_MGRUSER}
 

@@ -7,7 +7,13 @@
     set prop("AutheEnabled")=48
     do ##class(Security.Services).Modify("%Service_CallIn",.prop)
 
+    zpm "load https://github.com/SergeyMi37/zapm.git"
+
+
     zn "USER"
-    zpm "install passwordless"
-    zpm "load /home/irisowner/dev/ -v":1:1
+    ;zpm "install passwordless"
+    zpm "load /home/irisowner/dev/ -v":1
+    zpm "load https://github.com/SergeyMi37/isc-passwordless.git"
+    zapm "set img = ##class(NSolov.TextExtract.Image).%New(""/home/irisowner/dev/test-rus.png"", ""rus"") set string = img.Extract(), s= $replace(string,$c(10),$c(13,10))"
+    
     halt
